@@ -17,8 +17,7 @@ ensure_git_alias() {
 
 ensure_git_alias cb  "rev-parse --abbrev-ref HEAD"
 ensure_git_alias today  "!git --no-pager log --since=midnight --pretty=format:'* %Cred%h%Creset - %s %Cgreen(%ar)%Creset %Cblue<%an>%Creset'"
-# Escape `$0` so bash does not substitute the installer script path into the awk program.
-ensure_git_alias recent  "!git --no-pager log --name-only --pretty=format: --diff-filter=AMCR | awk 'NF && !seen[\$0]++ { print; if (++n == 10) exit }'"
+ensure_git_alias recent  "!$SCRIPT_DIR/recent.sh"
 ensure_git_alias pp '!git push -u origin $(git cb)'
 ensure_git_alias al "!git --no-pager config --show-origin --get-regexp '^alias\\.'"
 ensure_git_alias cc "!$SCRIPT_DIR/git-ai-commit.sh"
