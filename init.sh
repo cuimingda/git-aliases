@@ -14,4 +14,5 @@ ensure_git_alias() {
 }
 
 ensure_git_alias cb  "rev-parse --abbrev-ref HEAD"
+ensure_git_alias pp '!git push -u origin $(git cb)'
 
