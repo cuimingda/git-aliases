@@ -16,7 +16,7 @@ ensure_git_alias() {
 }
 
 ensure_git_alias cb  "rev-parse --abbrev-ref HEAD"
-ensure_git_alias today  "!git --no-pager log --since=midnight --pretty=format:'* %Cred%h%Creset - %s %Cgreen(%ar)%Creset %Cblue<%an>%Creset'"
+ensure_git_alias today  "!$SCRIPT_DIR/today.sh"
 ensure_git_alias recent  "!$SCRIPT_DIR/recent.sh"
 ensure_git_alias pp '!git push -u origin $(git cb)'
 ensure_git_alias al "!git --no-pager config --show-origin --get-regexp '^alias\\.'"
