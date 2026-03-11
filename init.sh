@@ -19,5 +19,5 @@ ensure_git_alias cb  "rev-parse --abbrev-ref HEAD"
 ensure_git_alias today  "!$SCRIPT_DIR/today.sh"
 ensure_git_alias recent  "!$SCRIPT_DIR/recent.sh"
 ensure_git_alias pp '!git push -u origin $(git cb)'
-ensure_git_alias al "!git --no-pager config --show-origin --get-regexp '^alias\\.'"
+ensure_git_alias al "!$SCRIPT_DIR/alias-list.sh"
 ensure_git_alias cc "!$SCRIPT_DIR/git-ai-commit.sh"
