@@ -10,11 +10,11 @@ Most aliases delegate their real behavior to standalone shell scripts in this re
 ## Repository layout
 
 - `init.sh`: source of truth for alias registration
-- `today.sh`: implementation for `git today`
-- `recent.sh`: implementation for `git recent`
-- `push-current-branch.sh`: implementation for `git pp`
-- `alias-list.sh`: implementation for `git al`
-- `git-ai-commit.sh`: implementation for `git cc`
+- `scripts/today.sh`: implementation for `git today`
+- `scripts/recent.sh`: implementation for `git recent`
+- `scripts/push-current-branch.sh`: implementation for `git pp`
+- `scripts/alias-list.sh`: implementation for `git al`
+- `scripts/git-ai-commit.sh`: implementation for `git cc`
 - `README.md`: user-facing setup and usage documentation
 
 ## Working rules
@@ -27,13 +27,13 @@ If an alias does more than a very small built-in Git command, prefer moving the 
 
 - resolving `SCRIPT_DIR`
 - writing alias values into global Git config
-- pointing aliases at scripts with absolute paths such as `!$SCRIPT_DIR/today.sh`
+- pointing aliases at scripts with absolute paths such as `!$SCRIPTS_DIR/today.sh`
 
 ### 2. Standalone scripts must not depend on other aliases
 
 Scripts should call `git` directly and must not assume aliases like `git cb` already exist.
 
-For example, `push-current-branch.sh` should resolve the branch with `git rev-parse --abbrev-ref HEAD` instead of calling `git cb`.
+For example, `scripts/push-current-branch.sh` should resolve the branch with `git rev-parse --abbrev-ref HEAD` instead of calling `git cb`.
 
 ### 3. Preserve Bash 3 compatibility
 
@@ -112,7 +112,7 @@ For `git cc`, remember it depends on:
 When adding a new alias:
 
 1. Add or update the implementation script.
-2. Point `init.sh` at the script using `!$SCRIPT_DIR/<script>.sh` when appropriate.
+2. Point `init.sh` at the script using `!$SCRIPTS_DIR/<script>.sh` when appropriate.
 3. Make the script executable.
 4. Verify installation in a temporary `HOME`.
 5. Update `README.md`.

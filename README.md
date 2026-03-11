@@ -77,8 +77,8 @@ git al
 Example output:
 
 ```text
-file:/Users/you/.gitconfig alias.today !/path/to/today.sh
-file:/Users/you/.gitconfig alias.recent !/path/to/recent.sh
+file:/Users/you/.gitconfig alias.today !/path/to/scripts/today.sh
+file:/Users/you/.gitconfig alias.recent !/path/to/scripts/recent.sh
 ```
 
 ### `git cc`
@@ -100,10 +100,10 @@ Requirements:
 
 Each alias is backed by a standalone shell script where appropriate:
 
-- `today.sh`
-- `recent.sh`
-- `push-current-branch.sh`
-- `alias-list.sh`
-- `git-ai-commit.sh`
+- `scripts/today.sh`
+- `scripts/recent.sh`
+- `scripts/push-current-branch.sh`
+- `scripts/alias-list.sh`
+- `scripts/git-ai-commit.sh`
 
 This keeps the Git alias definitions short and makes the behavior easier to maintain.
