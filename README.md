@@ -24,6 +24,20 @@ Print the current branch name.
 git cb
 ```
 
+### `git pf`
+
+Run a fast-forward-only pull.
+
+```bash
+git pf
+```
+
+This is equivalent to:
+
+```bash
+git pull --ff-only
+```
+
 ### `git today`
 
 Show commits created since midnight, using a compact readable format.

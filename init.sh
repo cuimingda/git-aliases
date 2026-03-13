@@ -17,6 +17,7 @@ ensure_git_alias() {
 }
 
 ensure_git_alias cb  "rev-parse --abbrev-ref HEAD"
+ensure_git_alias pf  "pull --ff-only"
 ensure_git_alias today  "!$SCRIPTS_DIR/today.sh"
 ensure_git_alias recent  "!$SCRIPTS_DIR/recent.sh"
 ensure_git_alias pp "!$SCRIPTS_DIR/push-current-branch.sh"
